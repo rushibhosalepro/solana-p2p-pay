@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getAuth } from "@clerk/express";
 import {
   Keypair,

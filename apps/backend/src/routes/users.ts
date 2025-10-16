@@ -1,4 +1,4 @@
-//  @ts-nocheck
+// @ts-nocheck
 import { getAuth } from "@clerk/express";
 import prisma from "database";
 import express from "express";

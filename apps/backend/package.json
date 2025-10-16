@@ -7,8 +7,7 @@
     "@types/bun": "latest"
   },
   "scripts": {
-    "dev": "bun  run  --watch src/index.ts",
-    "build": "echo 'Build successful'"
+    "dev": "bun  run  --watch src/index.ts"
   },
   "dependencies": {
     "@clerk/clerk-sdk-node": "^5.1.6",
