@@ -8,10 +8,10 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
-      "dependsOn": []
+      "dependsOn": ["^lint"]
     },
     "check-types": {
-      "dependsOn": []
+      "dependsOn": ["^check-types"]
     },
     "dev": {
       "cache": false,
