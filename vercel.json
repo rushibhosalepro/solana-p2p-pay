@@ -3,5 +3,6 @@
     "env": {
       "VERCEL_FORCE_NO_BUILD_CACHE": "1"
     }
-  }
+  },
+  "outputDirectory": "apps/frontend/.next"
 }
