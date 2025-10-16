@@ -20,5 +20,9 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@clerk/nextjs": "^6.33.5",
+    "@solana/pay": "^0.2.6"
+  }
 }
