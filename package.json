@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "@clerk/nextjs": "^6.33.5",
-    "@solana/pay": "^0.2.6"
+    "@solana/pay": "^0.2.6",
+    "date-fns": "^4.1.0"
   }
 }
