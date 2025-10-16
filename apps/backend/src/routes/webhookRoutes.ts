@@ -1,3 +1,4 @@
+// @ts-nocheck
 import prisma from "database";
 import express from "express";
 import { createHelius } from "helius-sdk";

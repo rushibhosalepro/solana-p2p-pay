@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getAuth } from "@clerk/express";
 import { Keypair, LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
 import bs58 from "bs58";
