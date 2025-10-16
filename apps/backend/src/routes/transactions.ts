@@ -9,9 +9,27 @@ import bs58 from "bs58";
 import prisma from "database";
 import express from "express";
 import { TOKENS, type TokenTypes } from "types";
+import type { $Enums } from "../../../../packages/database/generated/prisma";
+import type { JsonValue } from "../../../../packages/database/generated/prisma/runtime/library";
 import { prepareSwapTransaction } from "../jupiter";
 import { connection, detectRecipientType } from "../utils";
 // import { connection, detectRecipientType } from "../utils";
+
+type TransactionType = {
+  id: string;
+  signature: string;
+  blockTime: Date;
+  message: string;
+  slot: bigint;
+  amount: bigint;
+  fee: bigint;
+  status: $Enums.TransactionStatus;
+  fromAddress: string | null;
+  toAddress: string | null;
+  memo: string | null;
+  metadata: JsonValue | null;
+  createdAt: Date;
+};
 
 const router = express.Router();
 router.get("/", async (req, res) => {
@@ -28,7 +46,9 @@ router.get("/", async (req, res) => {
     if (!user)
       return res.status(404).json({ ok: false, error: "Invalid user" });
 
-    const userPublicKeys = user.wallets.map((w: any) => w.publicKey);
+    const userPublicKeys = user.wallets.map(
+      (w: { publicKey: string }) => w.publicKey
+    );
 
     if (userPublicKeys.length === 0)
       return res.json({ ok: true, transactions: [] });
@@ -45,7 +65,7 @@ router.get("/", async (req, res) => {
 
     const addressesInTx = [
       ...new Set(
-        transactions.flatMap((tx: any) =>
+        transactions.flatMap((tx: TransactionType) =>
           [tx.fromAddress, tx.toAddress].filter(
             (addr): addr is string => !!addr
           )
