@@ -4,5 +4,5 @@
       "VERCEL_FORCE_NO_BUILD_CACHE": "1"
     }
   },
-  "outputDirectory": ".next"
+  "outputDirectory": "apps/fe/.next"
 }
