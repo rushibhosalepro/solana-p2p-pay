@@ -1,0 +1,7 @@
+export const TOKENS = {
+  SOL: "So11111111111111111111111111111111111111112",
+  USDT: "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+  USDC: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  BONK: "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+};
+export type TokenTypes = keyof typeof TOKENS;

@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(uuid())
+  email       String   @unique
+  phone       String
+  name        String?
+  clerkUserId String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  wallets Wallet[]
+}
+
+model Wallet {
+  id                  String    @id @default(uuid())
+  publicKey           String
+  encryptedPrivateKey String?
+  isCustodial         Boolean   @default(false)
+  userId              String?
+  isSeleted           Boolean   @default(true)
+  walletType          String?
+  isActive            Boolean   @default(true)
+  balance             BigInt
+  lastSyncedAt        DateTime?
+  lastSignature       String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  user                User?     @relation(fields: [userId], references: [id])
+}
+
+model Transaction {
+  id        String @id @default(uuid())
+  signature String @unique
+  blockTime   DateTime
+  message     String
+  slot        BigInt
+  amount      BigInt // in lamports (always positive, represents the actual amount transferred)
+  fee         BigInt            @default(0)
+  status      TransactionStatus
+  fromAddress String?
+  toAddress   String?
+  memo        String?
+  metadata    Json?
+  createdAt   DateTime          @default(now())
+}
+
+enum TransactionStatus {
+  CONFIRMED
+  FINALIZED
+  FAILED
+}
