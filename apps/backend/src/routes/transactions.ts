@@ -1,4 +1,3 @@
-//  @ts-nocheck
 import { getAuth } from "@clerk/express";
 import {
   Keypair,
@@ -29,7 +28,7 @@ router.get("/", async (req, res) => {
     if (!user)
       return res.status(404).json({ ok: false, error: "Invalid user" });
 
-    const userPublicKeys = user.wallets.map((w) => w.publicKey);
+    const userPublicKeys = user.wallets.map((w: any) => w.publicKey);
 
     if (userPublicKeys.length === 0)
       return res.json({ ok: true, transactions: [] });
@@ -46,7 +45,7 @@ router.get("/", async (req, res) => {
 
     const addressesInTx = [
       ...new Set(
-        transactions.flatMap((tx) =>
+        transactions.flatMap((tx: any) =>
           [tx.fromAddress, tx.toAddress].filter(
             (addr): addr is string => !!addr
           )
@@ -63,7 +62,7 @@ router.get("/", async (req, res) => {
     });
 
     const walletMap = Object.fromEntries(
-      relatedWallets.map((w) => [w.publicKey, w.user])
+      relatedWallets.map((w: any) => [w.publicKey, w.user])
     );
 
     const txBySignature = new Map<
@@ -208,7 +207,7 @@ router.get("/recent", async (req, res) => {
     if (!user)
       return res.status(404).json({ ok: false, error: "Invalid user" });
 
-    const userPublicKeys = user.wallets.map((w) => w.publicKey);
+    const userPublicKeys = user.wallets.map((w: any) => w.publicKey);
     if (userPublicKeys.length === 0)
       return res.json({ ok: true, participants: [] });
 
