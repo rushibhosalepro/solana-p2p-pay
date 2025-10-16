@@ -1,8 +1,8 @@
 {
-  "build": {
-    "env": {
-      "VERCEL_FORCE_NO_BUILD_CACHE": "1"
-    }
-  },
-  "outputDirectory": "apps/fe/.next"
+  "buildCommand": "cd apps/fe && npm run build",
+  "outputDirectory": "apps/fe/.next",
+  "devCommand": "cd apps/fe && npm run dev",
+  "installCommand": "bun install",
+  "framework": "nextjs",
+  "regions": ["iad1"]
 }
