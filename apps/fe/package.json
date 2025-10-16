@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.33.5",
     "@radix-ui/react-slot": "^1.2.3",
     "@solana/wallet-adapter-backpack": "^0.1.14",
     "@solana/wallet-adapter-react": "^0.15.39",
@@ -21,11 +22,12 @@
     "currency-formatter": "^1.5.9",
     "lucide-react": "^0.545.0",
     "next": "^15.5.5",
-    "types": "workspace:*",
     "pino-pretty": "^13.1.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-qr-reader": "^3.0.0-beta-1",
     "tailwind-merge": "^3.3.1",
+    "types": "workspace:*",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
