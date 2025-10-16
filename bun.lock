@@ -6,6 +6,8 @@
       "dependencies": {
         "@clerk/nextjs": "^6.33.5",
         "@solana/pay": "^0.2.6",
+        "@types/currency-formatter": "^1.5.4",
+        "currency-formatter": "^1.5.9",
         "date-fns": "^4.1.0",
       },
       "devDependencies": {
@@ -868,6 +870,8 @@
     "@types/connect": ["@types/connect@3.4.38", "", { "dependencies": { "@types/node": "*" } }, "sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug=="],
 
     "@types/cors": ["@types/cors@2.8.19", "", { "dependencies": { "@types/node": "*" } }, "sha512-mFNylyeyqN93lfe/9CSxOGREz8cpzAhH+E93xJ4xWQf62V8sQ/24reV2nyzUWM6H6Xji+GGHpkbLe7pVoUEskg=="],
+
+    "@types/currency-formatter": ["@types/currency-formatter@1.5.4", "", {}, "sha512-JjRK2SQdoxvzsB8OPCLrXyfLLh31bGJt+8DLbqYs02uP/2IDtJsacvLB35DutvNkYsuQeP+Reve+xEyTl3IKTQ=="],
 
     "@types/estree": ["@types/estree@1.0.8", "", {}, "sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w=="],
 
