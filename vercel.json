@@ -1,30 +1,5 @@
 {
-  "version": 3,
-  "builds": [
-    {
-      "src": "apps/fe/package.json",
-      "use": "@vercel/next",
-      "config": { "distDir": ".next" }
-    },
-    {
-      "src": "apps/backend/package.json",
-      "use": "@vercel/node",
-      "config": { "distDir": "dist" }
-    },
-    {
-      "src": "apps/service/package.json",
-      "use": "@vercel/node",
-      "config": { "distDir": "dist" }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "apps/backend/dist/index.js"
-    },
-    {
-      "src": "/service/(.*)",
-      "dest": "apps/service/dist/index.js"
-    }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "turbo run build",
+  "outputDirectory": "build"
 }
