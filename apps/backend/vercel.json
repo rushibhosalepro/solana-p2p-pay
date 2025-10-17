@@ -1,7 +1,0 @@
-{
-  "buildCommand": "turbo run build --filter=backend",
-  "outputDirectory": "dist",
-  "framework": null,
-  "builds": [{ "src": "src/index.ts", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "src/index.ts" }]
-}
