@@ -21,7 +21,7 @@
     },
     "database:build": {
       "dependsOn": ["^build"],
-      "outputs": ["generate/**"]
+      "outputs": ["generated/prisma"]
     },
     "types:build": {
       "dependsOn": ["^build"],
