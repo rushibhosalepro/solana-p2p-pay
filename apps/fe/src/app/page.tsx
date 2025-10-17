@@ -19,7 +19,7 @@ export default function Home() {
         <div className="flex items-center justify-between gap-5">
           <SignedIn>
             <Link
-              href={"/payment-dashboard"}
+              href={"/dashboard"}
               className="cursor-pointer flex items-center gap-2 font-semibold"
             >
               Go To Dashboard <ArrowRight className="w-5 h-5" />

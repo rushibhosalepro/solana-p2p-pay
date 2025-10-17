@@ -1,7 +1,6 @@
 {
   "buildCommand": "cd apps/fe && npm run build",
   "outputDirectory": "apps/fe/.next",
-  "devCommand": "cd apps/fe && npm run dev",
   "installCommand": "bun install",
   "framework": "nextjs",
   "regions": ["iad1"]

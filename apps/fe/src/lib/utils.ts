@@ -17,7 +17,7 @@ export const lamportsToSol = (
 ): string => {
   const sol = Number(lamports) / LAMPORTS_PER_SOL;
   return new Intl.NumberFormat("en-US", {
-    minimumFractionDigits: 5,
+    minimumFractionDigits: 2,
     maximumFractionDigits: 6,
   }).format(sol);
 };
