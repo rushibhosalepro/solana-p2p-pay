@@ -8,7 +8,7 @@
     {
       "src": "apps/backend/src/index.ts",
       "use": "@vercel/node",
-      "config": { "distDir": "dist" }
+      "config": { "distDir": "apps/backend/dist" }
     },
     {
       "src": "apps/service/src/index.ts",
