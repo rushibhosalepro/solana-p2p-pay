@@ -12,7 +12,7 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "backend:build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["database:build"],
       "outputs": ["dist/**"]
     },
     "service:build": {
@@ -21,7 +21,7 @@
     },
     "database:build": {
       "dependsOn": ["^build"],
-      "outputs": ["generated/prisma"]
+      "outputs": ["generated/**"]
     },
     "types:build": {
       "dependsOn": ["^build"],
