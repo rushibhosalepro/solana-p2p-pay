@@ -2,6 +2,7 @@
   "buildCommand": "bun run turbo run build --filter=fe --filter=backend --filter=service",
   "installCommand": "bun install",
   "framework": null,
+  "outputDirectory": "apps/fe/.next",
   "builds": [
     {
       "src": "apps/fe/package.json",
@@ -38,5 +39,10 @@
       "src": "/(.*)",
       "dest": "apps/fe/$1"
     }
-  ]
+  ],
+  "env": {
+    "DATABASE_URL": "@database-url",
+    "CLERK_PUBLISHABLE_KEY": "@clerk-publishable-key",
+    "CLERK_SECRET_KEY": "@clerk-secret-key"
+  }
 }
