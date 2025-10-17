@@ -5,29 +5,25 @@
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"]
     },
-    "fe#build": {
+    "fe:build": {
       "dependsOn": ["^build"],
       "env": ["NEXT_PUBLIC_API_URL", "NEXT_PUBLIC_SOLANA_NETWORK"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
-    "backend#build": {
-      "dependsOn": ["^build", "database#generate"],
+    "backend:build": {
+      "dependsOn": ["^build", "database:build"],
       "outputs": ["dist/**"]
     },
-    "service#build": {
-      "dependsOn": ["^build", "database#generate"],
+    "service:build": {
+      "dependsOn": ["^build", "database:build"],
       "outputs": ["dist/**"]
     },
-    "database#build": {
-      "dependsOn": ["database#generate"],
+    "database:build": {
+      "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "database#generate": {
-      "cache": true,
-      "outputs": ["generated/**", "node_modules/.prisma/**", "src/generated/**"]
-    },
-    "types#build": {
-      "dependsOn": ["database#generate"],
+    "types:build": {
+      "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
     "lint": {
