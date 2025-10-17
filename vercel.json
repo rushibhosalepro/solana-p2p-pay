@@ -1,11 +1,21 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "turbo run build --filter=fe",
   "builds": [
     {
       "src": "apps/fe/package.json",
       "use": "@vercel/next",
-      "config": { "distDir": "apps/fe/.next" }
+      "config": { "distDir": ".next" }
+    },
+    {
+      "src": "apps/backend/src/index.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "apps/service/src/index.ts",
+      "use": "@vercel/node"
     }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "apps/backend/src/index.ts" },
+    { "src": "/service/(.*)", "dest": "apps/service/src/index.ts" }
   ]
 }
