@@ -9,7 +9,7 @@
     "fe:build": {
       "dependsOn": ["^build"],
       "env": ["NEXT_PUBLIC_API_URL", "NEXT_PUBLIC_SOLANA_NETWORK"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": ["apps/fe/.next/**", "!.next/cache/**"]
     },
     "backend:build": {
       "dependsOn": ["database:build"],
@@ -19,26 +19,21 @@
         "CLERK_PUBLISHABLE_KEY",
         "CLERK_SECRET_KEY"
       ],
-      "outputs": ["dist/**"]
+      "outputs": ["apps/backend/dist/**"]
     },
     "service:build": {
       "dependsOn": ["database:build"],
-      "env": [
-        "DATABASE_URL",
-        "PORT",
-        "CLERK_PUBLISHABLE_KEY",
-        "CLERK_SECRET_KEY"
-      ],
-      "outputs": ["dist/**"]
+      "env": ["DATABASE_URL", "PORT"],
+      "outputs": ["apps/service/dist/**"]
     },
     "database:build": {
       "dependsOn": [],
       "env": ["DATABASE_URL"],
-      "outputs": ["generated/**", "node_modules/.prisma/**"]
+      "outputs": ["packages/database/generated/**", "node_modules/.prisma/**"]
     },
     "types:build": {
       "dependsOn": [],
-      "outputs": ["dist/**"]
+      "outputs": ["packages/database/dist/**"]
     },
     "lint": {
       "dependsOn": ["^lint"],
