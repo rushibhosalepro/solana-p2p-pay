@@ -1,7 +1,7 @@
 {
   "buildCommand": "turbo run build --filter=fe --filter=backend --filter=service",
   "installCommand": "bun install",
-  "framework": null,
+  "framework": "nextjs",
   "builds": [
     {
       "src": "apps/fe/package.json",
