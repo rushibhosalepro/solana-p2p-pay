@@ -1,5 +1,5 @@
 {
   "buildCommand": "turbo run build --filter=fe",
-  "outputDirectory": ".next",
+  "outputDirectory": "apps/fe/.next",
   "framework": "nextjs"
 }
