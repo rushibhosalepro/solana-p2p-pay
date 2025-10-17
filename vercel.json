@@ -1,21 +1,49 @@
 {
+  "buildCommand": "bun run turbo run build --filter=fe --filter=backend --filter=service",
+  "installCommand": "bun install",
+  "framework": null,
   "builds": [
     {
       "src": "apps/fe/package.json",
       "use": "@vercel/next",
-      "config": { "distDir": ".next" }
+      "config": {
+        "distDir": ".next"
+      }
     },
     {
-      "src": "apps/backend/src/index.ts",
+      "src": "apps/backend/dist/index.js",
       "use": "@vercel/node"
     },
     {
-      "src": "apps/service/src/index.ts",
+      "src": "apps/service/dist/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "apps/backend/src/index.ts" },
-    { "src": "/service/(.*)", "dest": "apps/service/src/index.ts" }
-  ]
+    {
+      "src": "/api/(.*)",
+      "dest": "apps/backend/dist/index.js"
+    },
+    {
+      "src": "/service/(.*)",
+      "dest": "apps/service/dist/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "apps/fe/$1"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "@database-url"
+  },
+  "functions": {
+    "apps/backend/dist/index.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    },
+    "apps/service/dist/index.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
 }
