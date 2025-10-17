@@ -12,11 +12,17 @@
     },
     {
       "src": "apps/backend/dist/index.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "maxDuration": 10
+      }
     },
     {
       "src": "apps/service/dist/index.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "maxDuration": 10
+      }
     }
   ],
   "routes": [
@@ -35,15 +41,5 @@
   ],
   "env": {
     "DATABASE_URL": "@database-url"
-  },
-  "functions": {
-    "apps/backend/dist/index.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    },
-    "apps/service/dist/index.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
   }
 }
