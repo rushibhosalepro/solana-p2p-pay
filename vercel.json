@@ -1,58 +1,30 @@
 {
-  "$schema": "https://turborepo.com/schema.json",
-  "tasks": {
-    "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"]
+  "version": 3,
+  "builds": [
+    {
+      "src": "apps/fe/package.json",
+      "use": "@vercel/next",
+      "config": { "distDir": ".next" }
     },
-    "fe:build": {
-      "dependsOn": ["^build"],
-      "env": ["NEXT_PUBLIC_API_URL", "NEXT_PUBLIC_SOLANA_NETWORK"],
-      "outputs": [".next/**", "!.next/cache/**"]
+    {
+      "src": "apps/backend/package.json",
+      "use": "@vercel/node",
+      "config": { "distDir": "dist" }
     },
-    "backend:build": {
-      "dependsOn": ["^build", "database:build"],
-      "outputs": ["dist/**"]
-    },
-    "service:build": {
-      "dependsOn": ["^build", "database:build"],
-      "outputs": ["dist/**"]
-    },
-    "database:build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
-    },
-    "types:build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
-    },
-    "lint": {
-      "dependsOn": ["^lint"],
-      "outputs": [".eslintcache"]
-    },
-    "check-types": {
-      "dependsOn": ["^check-types", "^database#generate"],
-      "cache": true,
-      "outputs": []
-    },
-    "dev": {
-      "dependsOn": ["^database#generate"],
-      "cache": false,
-      "persistent": true
+    {
+      "src": "apps/service/package.json",
+      "use": "@vercel/node",
+      "config": { "distDir": "dist" }
     }
-  },
-  "globalEnv": [
-    "DATABASE_URL",
-    "GITHUB_TOKEN",
-    "PORT",
-    "CLERK_PUBLISHABLE_KEY",
-    "CLERK_SECRET_KEY",
-    "NEXT_PUBLIC_API_URL",
-    "NEXT_PUBLIC_SOLANA_NETWORK",
-    "NODE_ENV",
-    "VERCEL",
-    "VERCEL_ENV",
-    "VERCEL_URL"
   ],
-  "globalDependencies": ["tsconfig.json", "prisma/schema.prisma"]
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "apps/backend/dist/index.js"
+    },
+    {
+      "src": "/service/(.*)",
+      "dest": "apps/service/dist/index.js"
+    }
+  ]
 }
