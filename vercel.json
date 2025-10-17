@@ -7,13 +7,11 @@
     },
     {
       "src": "apps/backend/src/index.ts",
-      "use": "@vercel/node",
-      "config": { "distDir": "apps/backend/dist" }
+      "use": "@vercel/node"
     },
     {
       "src": "apps/service/src/index.ts",
-      "use": "@vercel/node",
-      "config": { "distDir": "dist" }
+      "use": "@vercel/node"
     }
   ],
   "routes": [

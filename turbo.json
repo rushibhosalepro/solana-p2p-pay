@@ -6,24 +6,24 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": []
     },
-    "fe#build": {
+    "fe:build": {
       "dependsOn": ["^build"],
       "env": ["NEXT_PUBLIC_API_URL", "NEXT_PUBLIC_SOLANA_NETWORK"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
-    "backend#build": {
+    "backend:build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "service#build": {
+    "service:build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "data#build": {
+    "database:build": {
       "dependsOn": ["^build"],
-      "outputs": ["node_modules/.prisma/**"]
+      "outputs": ["generate/**"]
     },
-    "types#build": {
+    "types:build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
