@@ -1,21 +1,5 @@
 {
-  "builds": [
-    {
-      "src": "apps/fe/package.json",
-      "use": "@vercel/next",
-      "config": { "distDir": ".next" }
-    },
-    {
-      "src": "apps/backend/src/index.ts",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "apps/service/src/index.ts",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "apps/backend/src/index.ts" },
-    { "src": "/service/(.*)", "dest": "apps/service/src/index.ts" }
-  ]
+  "buildCommand": "turbo run build --filter=fe",
+  "outputDirectory": "apps/fe/.next",
+  "framework": "nextjs"
 }
