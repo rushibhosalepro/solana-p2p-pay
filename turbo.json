@@ -6,7 +6,7 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**", "generated/**"]
     },
-    "database:generate": {
+    "database:build": {
       "cache": true,
       "outputs": ["generated/**", "node_modules/.prisma/**", "src/generated/**"]
     },
@@ -15,12 +15,12 @@
       "outputs": [".eslintcache"]
     },
     "check-types": {
-      "dependsOn": ["^check-types", "^database:generate"],
+      "dependsOn": ["^check-types", "^database:build"],
       "cache": true,
       "outputs": []
     },
     "dev": {
-      "dependsOn": ["^database:generate"],
+      "dependsOn": ["^database:build"],
       "cache": false,
       "persistent": true
     }
