@@ -38,8 +38,5 @@
       "src": "/(.*)",
       "dest": "apps/fe/$1"
     }
-  ],
-  "env": {
-    "DATABASE_URL": "@database-url"
-  }
+  ]
 }
