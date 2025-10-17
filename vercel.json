@@ -1,6 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-
-  "outputDirectory": "build",
-  "buildCommand": "turbo run build --filter=fe"
+  "buildCommand": "turbo run build --filter=fe",
+  "builds": [
+    {
+      "src": "apps/fe/package.json",
+      "use": "@vercel/next",
+      "config": { "distDir": "apps/fe/.next" }
+    }
+  ]
 }
