@@ -1,7 +1,5 @@
 {
-  "buildCommand": "cd apps/fe && npm run build",
+  "buildCommand": "turbo run build --filter=fe",
   "outputDirectory": "apps/fe/.next",
-  "installCommand": "bun install",
-  "framework": "nextjs",
-  "regions": ["iad1"]
+  "framework": "nextjs"
 }

@@ -1,11 +1,31 @@
 {
   "$schema": "https://turborepo.com/schema.json",
-  "ui": "tui",
-  "tasks": {
+  "pipeline": {
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": []
+    },
+    "fe#build": {
+      "dependsOn": ["^build"],
+      "env": ["NEXT_PUBLIC_API_URL", "NEXT_PUBLIC_SOLANA_NETWORK"],
       "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "backend#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "service#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "data#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["node_modules/.prisma/**"]
+    },
+    "types#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -17,5 +37,7 @@
       "cache": false,
       "persistent": true
     }
-  }
+  },
+  "globalEnv": ["DATABASE_URL", "GITHUB_TOKEN"],
+  "globalDependencies": ["tsconfig.json"]
 }
