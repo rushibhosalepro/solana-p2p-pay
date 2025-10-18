@@ -16,9 +16,9 @@ RUN bun install
 RUN bun run build
 
 # Expose ports for apps
-EXPOSE 3000  # frontend
-EXPOSE 3001  # backend
-EXPOSE 3002  # service
+EXPOSE 3000  #frontend
+EXPOSE 3001  #backend
+EXPOSE 3002  #service
 
 # Start all apps (dev mode)
 CMD ["bun", "run", "dev"]

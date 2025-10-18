@@ -47,7 +47,13 @@
     "dev": {
       "dependsOn": ["database:build"],
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "outputs": [
+        "apps/fe/.next/**",
+        "apps/backend/dist/**",
+        "apps/service/dist/**",
+        "packages/database/generated/**"
+      ]
     }
   },
   "globalEnv": [
