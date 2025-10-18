@@ -3,19 +3,11 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [
-        "apps/backend/dist/**",
-        "apps/service/dist/**",
-        "apps/fe/.next/**",
-        "packages/database/generated/**",
-        "packages/database/types/**"
-      ]
+      "inputs": ["$TURBO_DEFAULT$", ".env*"]
     },
     "fe:build": {
       "dependsOn": ["^build"],
-      "env": ["NEXT_PUBLIC_API_URL", "NEXT_PUBLIC_SOLANA_NETWORK"],
-      "outputs": ["apps/fe/.next/**", "appps/fe/!.next/cache/**"]
+      "env": ["NEXT_PUBLIC_API_URL", "NEXT_PUBLIC_SOLANA_NETWORK"]
     },
     "backend:build": {
       "dependsOn": ["database:build"],
@@ -24,22 +16,18 @@
         "PORT",
         "CLERK_PUBLISHABLE_KEY",
         "CLERK_SECRET_KEY"
-      ],
-      "outputs": ["apps/backend/dist/**"]
+      ]
     },
     "service:build": {
       "dependsOn": ["database:build"],
-      "env": ["DATABASE_URL", "PORT"],
-      "outputs": ["apps/service/dist/**"]
+      "env": ["DATABASE_URL", "PORT"]
     },
     "database:build": {
       "dependsOn": [],
-      "env": ["DATABASE_URL"],
-      "outputs": ["packages/database/generated/**", "node_modules/.prisma/**"]
+      "env": ["DATABASE_URL"]
     },
     "types:build": {
-      "dependsOn": [],
-      "outputs": ["packages/database/dist/**"]
+      "dependsOn": []
     },
     "lint": {
       "dependsOn": ["^lint"],
@@ -53,15 +41,10 @@
     "dev": {
       "dependsOn": ["database:build"],
       "cache": false,
-      "persistent": true,
-      "outputs": [
-        "apps/fe/.next/**",
-        "apps/backend/dist/**",
-        "apps/service/dist/**",
-        "packages/database/generated/**"
-      ]
+      "persistent": true
     }
   },
+
   "globalEnv": [
     "DATABASE_URL",
     "GITHUB_TOKEN",

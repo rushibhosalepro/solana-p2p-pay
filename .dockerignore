@@ -1,0 +1,46 @@
+# Node & Bun dependencies
+node_modules
+**/node_modules
+.bun
+**/.bun
+
+# Turbo cache
+.turbo
+**/.turbo
+
+# Logs & temp files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+.tmp
+dist
+build
+coverage
+
+# Next.js build output
+apps/fe/.next/cache
+apps/fe/out
+
+# Prisma local files
+packages/database/generated
+packages/database/.env
+prisma/.env
+
+# Environment & local configs
+.env
+.env.*
+!.env.example
+
+# Git & editor
+.git
+.gitignore
+.vscode
+.idea
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*
