@@ -4,12 +4,18 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", ".next/**", "generated/**"]
+      "outputs": [
+        "apps/backend/dist/**",
+        "apps/service/dist/**",
+        "apps/fe/.next/**",
+        "packages/database/generated/**",
+        "packages/database/types/**"
+      ]
     },
     "fe:build": {
       "dependsOn": ["^build"],
       "env": ["NEXT_PUBLIC_API_URL", "NEXT_PUBLIC_SOLANA_NETWORK"],
-      "outputs": ["apps/fe/.next/**", "!.next/cache/**"]
+      "outputs": ["apps/fe/.next/**", "appps/fe/!.next/cache/**"]
     },
     "backend:build": {
       "dependsOn": ["database:build"],
